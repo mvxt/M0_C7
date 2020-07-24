@@ -21,6 +21,7 @@ This challenge will test and give you practice in:
 - You don't necessarily need to know how every line in the tests works... just find out what results the tests check for.
 - You can also manually test the program.
 - There's more code than you're accustomed to, and some of it looks scary. Remember to just think things through and read the code carefully. Aside from `try/except` and the ternary statement, there's nothing in here you haven't seen before.
+- **Look for comments and hints within the code.**
 
 ## Knowledge Tested
 - Conditionals

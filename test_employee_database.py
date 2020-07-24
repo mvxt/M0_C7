@@ -52,7 +52,7 @@ class TestEmployeeDatabase(unittest.TestCase):
             ('Denver', '>> Record added\r\n'),
             ('edit 1', 'Name '),
             ('Jacob', 'City '),
-            ('\r', '>> Record edited\r\n'),
+            ('\r', '>> Record edited\r\n'), #\r is just return, so empty input
             ('view 1', '>> 1 Jacob Denver\r\n')
         ]
         self.assert_interactions(tests)

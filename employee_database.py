@@ -28,14 +28,14 @@ def add_employee_record(id_num, name, city):
     # If ID already exists, return False
     if id_num in names or id_num in cities:
         return False
-    
+
     # If name or city are empty, return False
-    if not name:
+    if not name or not city:
         return False
 
     # Otherwise create the dictionary pairs
     names[id_num] = name
-    cities[id_num] = city
+    cities[id_num] = name
 
     return True
 
@@ -78,7 +78,7 @@ def remove_employee_record(id_num):
     if id_num in cities:
         del cities[id_num]
     else:
-        return True
+        return False
 
     return True
 

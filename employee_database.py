@@ -35,7 +35,7 @@ def add_employee_record(id_num, name, city):
 
     # Otherwise create the dictionary pairs
     names[id_num] = name
-    cities[id_num] = name
+    cities[id_num] = city
 
     return True
 
@@ -50,7 +50,10 @@ def edit_employee_record(id_num, name, city):
     if not id_num in names or not id_num in cities:
         return False
 
-    cities[id_num] = city
+    if name:
+        names[id_num] = name
+    if city:
+        cities[id_num] = city
 
     return True
 
@@ -61,7 +64,7 @@ def get_employee_record(id_num):
     id_num -- ID of employee record to fetch
     """
     if not id_num in names or not id_num in cities:
-        return 'Hubba bubba'
+        return 'Error viewing record'
 
     return f'{id_num} {names[id_num]} {cities[id_num]}'
 
@@ -72,7 +75,7 @@ def remove_employee_record(id_num):
     id_num -- ID of employee record to remove
     """
     if id_num in names:
-        del cities[id_num]
+        del names[id_num]
     else:
         return False
     if id_num in cities:
@@ -98,7 +101,7 @@ if __name__ == '__main__':
                     name = input('Name << ')
                     city = input('City << ')
                     # Hint: Look up python ternary
-                    print('>> Record addeded' if add_employee_record(id_num, name, city) else '>> Error adding record')
+                    print('>> Record added' if add_employee_record(id_num, name, city) else '>> Error adding record')
                 elif cmd_arr[0] == 'edit':
                     name = input('Name << ')
                     city = input('City << ')
@@ -107,10 +110,10 @@ if __name__ == '__main__':
                     result = get_employee_record(id_num)
                     print(f'>> {result}' if result else '>> Error viewing record')
                 elif cmd_arr[0] == 'remove':
-                    print('>> Record deleted' if remove_employee_record(id_num) else '>> Error removing record')
+                    print('>> Record removed' if remove_employee_record(id_num) else '>> Error removing record')
                 else:
                     print(err)
             except ValueError:
-                print('>> Invalid id')
+                print('>> Invalid ID')
         else:
             print('>> Invalid command')
